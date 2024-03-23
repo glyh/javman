@@ -2,10 +2,13 @@
   (:require
     [io.github.humbleui.ui :as ui]))
 
-(ui/defcomp app []
-  [ui/center
-   [ui/label "Hello, world"]])
+(def ui
+  (ui/default-theme {}
+    (ui/center
+      (ui/label "Hello from Humble UI! 👋"))))
   
 (defn -main [& args]
-  (ui/start-app!
-    (ui/window #'app)))
+  (ui/start-app!)
+  (ui/window
+    {:title "Humble 🐝 UI"}
+    #'ui))
